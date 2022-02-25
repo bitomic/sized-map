@@ -1,6 +1,9 @@
 # Sized Map
 > ES6 Map with a configurable max size.
 
+![npm](https://img.shields.io/npm/v/sized-map)
+![NPM](https://img.shields.io/npm/l/sized-map)
+
 ## Features
 * Written using TypeScript (and thus fully typed, supporting TypeScript and JavaScript).
 * Lightweight.
