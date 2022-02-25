@@ -1,6 +1,7 @@
 {
   "name": "sized-map",
-  "version": "1.0.0",
+  "description": "ES6 Map with a configurable max size.",
+  "version": "0.0.1",
   "type": "module",
   "author": "bitomic",
   "license": "MIT",
@@ -11,6 +12,12 @@
     "import": "./dist/main.js",
     "require": "./dist/main.cjs"
   },
+  "keywords": [
+    "map",
+    "sized",
+    "sized map",
+    "collection"
+  ],
   "scripts": {
     "hooks": "husky install .github/husky",
     "build": "rimraf tsconfig.tsbuildinfo dist && yarn tsc --listEmittedFiles --incremental",
