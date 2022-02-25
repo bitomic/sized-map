@@ -44,7 +44,7 @@ export class SizedMap<K, V> extends Map<K, V> {
 	}
 
 	protected push( key: K ): void {
-		if ( this.#orderedKeys.length === this.#maxSize ) this.pop()
+		if ( this.#orderedKeys.length === this.#maxSize && !this.has( key ) ) this.pop()
 		this.#orderedKeys.push( key )
 	}
 
