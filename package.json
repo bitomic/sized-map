@@ -1,7 +1,7 @@
 {
   "name": "sized-map",
   "description": "ES6 Map with a configurable max size.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "author": "bitomic",
   "license": "MIT",
