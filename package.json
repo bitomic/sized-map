@@ -1,13 +1,16 @@
 {
   "name": "sized-map",
   "version": "1.0.0",
-  "main": "dist/main.js",
   "type": "module",
   "author": "bitomic",
   "license": "MIT",
   "files": [
     "dist"
   ],
+  "exports": {
+    "import": "./dist/main.js",
+    "require": "./dist/main.cjs"
+  },
   "scripts": {
     "hooks": "husky install .github/husky",
     "build": "rimraf tsconfig.tsbuildinfo dist && yarn tsc --listEmittedFiles --incremental",
