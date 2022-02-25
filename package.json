@@ -5,7 +5,7 @@
   "type": "module",
   "author": "bitomic",
   "license": "MIT",
-  "private": true,
+  "files": [ "dist" ],
   "scripts": {
     "prepare": "husky install .github/husky",
     "build": "rimraf tsconfig.tsbuildinfo dist && yarn tsc --listEmittedFiles --incremental",
