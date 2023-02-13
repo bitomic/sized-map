@@ -1,11 +1,9 @@
 export class SizedMap<K, V> extends Map<K, V> {
 	#maxSize: number
-	#orderedKeys: K[]
 
 	public constructor( maxSize: number ) {
 		super()
 		this.#maxSize = maxSize
-		this.#orderedKeys = []
 	}
 
 	public get maxSize(): number {
@@ -23,34 +21,28 @@ export class SizedMap<K, V> extends Map<K, V> {
 	}
 
 	public override clear(): void {
-		this.#orderedKeys.splice( 0, this.#orderedKeys.length )
 		super.clear()
 	}
 
 	public override delete( key: K ): boolean {
-		this.#orderedKeys = this.#orderedKeys.filter( k => k !== key )
 		return super.delete( key )
 	}
 
 	protected pop( n = 1 ): void {
 		if ( n <= 0 || !Number.isInteger( n ) ) throw RangeError( 'You must provide a positive integer' )
-		if ( n === 1 ) {
-			const key = this.#orderedKeys.shift()
-			if ( key ) this.delete( key )
-			return
-		}
-		const keys = this.#orderedKeys.splice( 0, n )
-		for ( const key of keys ) super.delete( key )
-	}
 
-	protected push( key: K ): void {
-		if ( this.has( key ) ) this.delete( key )
-		if ( this.#orderedKeys.length === this.#maxSize ) this.pop()
-		this.#orderedKeys.push( key )
+		let idx = 0
+		for ( const key of this.keys() ) {
+			this.delete( key )
+			if ( ++idx >= n ) break
+		}
 	}
 
 	public override set( key: K, value: V ): this {
-		this.push( key )
+		if ( !this.has( key ) && this.size >= this.#maxSize ) {
+			this.pop( 1 )
+		}
+
 		return super.set( key, value )
 	}
 }
