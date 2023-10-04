@@ -27,7 +27,7 @@
     "lint:fix": "eslint src/ --fix --ext .ts --cache",
     "start": "yarn node dist/main.js"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "yarn@3.6.4",
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
